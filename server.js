@@ -23,11 +23,6 @@ const app = express();
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
-
-app.get('/', function (req, res) {
-    res.json({ message: 'Hello World' });
-});
-
 app.use(routes);
 
 app.listen(PORT, function () {
