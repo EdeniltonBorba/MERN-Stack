@@ -15,6 +15,7 @@ DataSchema.pre('save', function (next) {
         return next();
     }
     this.password_user = bcrypt.hashSync(this.password_user, 10);
+    next();
 });
 
 const users = mongoose.model('Users', DataSchema);

@@ -9,7 +9,7 @@ module.exports = {
 
         let data = {};
 
-        let user = Users.findOne({ email_user });
+        let user = await Users.findOne({ email_user });
         if (!user) {
             data = { name_user, email_user, type_user, password_user };
             user = await Users.create(data);
