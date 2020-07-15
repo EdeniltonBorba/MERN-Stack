@@ -22,6 +22,11 @@ module.exports = {
         const { _id } = req.params;
         const user = await Users.findOne({ _id });
         res.json(user);
-    }
-}
+    },
 
+    async delete(req, res) {
+        const { _id } = req.params;
+        const user = await Users.findByIdAndDelete({ _id });
+        return res.json(user);
+    },
+}
