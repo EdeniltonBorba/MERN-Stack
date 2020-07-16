@@ -10,5 +10,6 @@ routes.post('/api/users', Users.create);
 routes.get('/api/users', Users.index);
 routes.get('/api/users/details/:_id', Users.details);
 routes.delete('/api/users/:_id', Users.delete);
+routes.put('/api/users', Users.update);
 
 module.exports = routes;

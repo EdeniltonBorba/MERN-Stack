@@ -1,4 +1,5 @@
 const Users = require('../models/user.model');
+const { update } = require('../models/user.model');
 
 module.exports = {
     async index(req, res) {
@@ -23,10 +24,15 @@ module.exports = {
         const user = await Users.findOne({ _id });
         res.json(user);
     },
-
     async delete(req, res) {
         const { _id } = req.params;
         const user = await Users.findByIdAndDelete({ _id });
+        return res.json(user);
+    },
+    async update(req, res) {
+        const { _id, name_user, email_user, type_user, password_user } = req.params;
+        const data = { name_user, email_user, type_user, password_user };
+        const user = await Users.findByIdAndUpdate({ _id }, data, { new: true });
         return res.json(user);
     },
 }
