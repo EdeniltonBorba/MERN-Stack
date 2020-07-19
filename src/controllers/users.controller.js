@@ -30,7 +30,7 @@ module.exports = {
         return res.json(user);
     },
     async update(req, res) {
-        const { _id, name_user, email_user, type_user, password_user } = req.params;
+        const { _id, name_user, email_user, type_user, password_user } = req.body;
         const data = { name_user, email_user, type_user, password_user };
         const user = await Users.findByIdAndUpdate({ _id }, data, { new: true });
         return res.json(user);
