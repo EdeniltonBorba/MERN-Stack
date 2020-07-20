@@ -7,12 +7,12 @@ module.exports = {
         res.json(product);
     },
     async create(req, res) {
-        const { name_user, email_user, type_user, password_user } = req.body;
+        const { name_product, description_product, qtd_product, price_product } = req.body;
         let data = {};
-        let product = await Product.findOne({ email_user });
+        let product = await Product.findOne({ name_product });
 
         if (!product) {
-            data = { name_user, email_user, type_user, password_user };
+            data = { name_product, description_product, qtd_product, price_product };
             product = await Product.create(data);
             return res.status(200).json(product);
         } else {
@@ -30,8 +30,8 @@ module.exports = {
         return res.json(product);
     },
     async update(req, res) {
-        const { _id, name_user, email_user, type_user, password_user } = req.body;
-        const data = { name_user, email_user, type_user, password_user };
+        const { _id, name_product, description_product, qtd_product, price_product } = req.body;
+        const data = { name_product, description_product, qtd_product, price_product };
         const product = await Product.findOneAndUpdate({ _id }, data, { new: true });
         return res.json(product);
     },
