@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function ProductListing() {
+export default function UsersListing() {
     return (
         <div>
-            <h1>Product Listing</h1>
+            <h1>Users Listing</h1>
         </div>
     );
 }
