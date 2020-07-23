@@ -1,5 +1,4 @@
 const Users = require('../models/user.model');
-const { update } = require('../models/user.model');
 
 module.exports = {
     async index(req, res) {
