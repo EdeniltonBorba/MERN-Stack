@@ -112,6 +112,9 @@ const useStyles = makeStyles((theme) => ({
     fixedHeight: {
         height: 240,
     },
+    img: {
+        width: "inherit",
+    },
 }));
 
 export default function Dashboard() {
@@ -169,7 +172,7 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        <img src={Img} />
+                        <img src={Img} className={classes.img} />
                     </Grid>
                     <Box pt={4}>
                         <Copyright />
