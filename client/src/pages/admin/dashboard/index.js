@@ -18,6 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../../../components/menu.admin';
+import Img from '../../../assets/img/Full-stack.jpeg';
 
 function Copyright() {
     return (
@@ -168,6 +169,7 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
+                        <img src={Img} />
                     </Grid>
                     <Box pt={4}>
                         <Copyright />
