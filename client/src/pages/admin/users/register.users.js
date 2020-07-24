@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin';
+import TextField from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,26 @@ export default function RegisterUsers() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        <h1>Cadastro de Usuario</h1>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="firstName"
+                                name="firstName"
+                                label="First name"
+                                fullWidth
+                                autoComplete="given-name"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                required
+                                id="lastName"
+                                name="lastName"
+                                label="Last name"
+                                fullWidth
+                                autoComplete="family-name"
+                            />
+                        </Grid>
                     </Grid>
                     <Box pt={4}>
                         <Footer />
