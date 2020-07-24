@@ -25,6 +25,15 @@ export default function Routes() {
                 <Route path='/product/:idProduct' exact component={ProductDetails} />
 
                 {/*route admin */}
+                <Route path='/admin' exact component={Dashboard} />
+                <Route path='/admin/product' exact component={Product} />
+                <Route path='/admin/product/register' exact component={RegisterProduct} />
+                <Route path='/admin/product/edit/:idProduct' exact component={EditProduct} />
+
+                <Route path='/admin/users' exact component={Users} />
+                <Route path='/admin/users/register' exact component={RegisterUsers} />
+                <Route path='/admin/users/edit/:idProduct' exact component={EditUsers} />
+
             </Switch>
         </BrowserRouter>
     )
