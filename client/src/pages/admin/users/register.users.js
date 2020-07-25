@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,6 +47,23 @@ const useStyles = makeStyles((theme) => ({
 export default function RegisterUsers() {
     const classes = useStyles();
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [type, setType] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleSubmit() {
+
+        const data = {
+            name_user: name,
+            email_user: email,
+            type_user: type,
+            password_user: password
+        }
+        console.log(data)
+    }
+
+
     return (
         <div className={classes.root}>
             <MenuAdmin title={'USERS'} />
@@ -65,6 +83,8 @@ export default function RegisterUsers() {
                                             label="Name"
                                             fullWidth
                                             autoComplete="name"
+                                            value={name}
+                                            onChange={e => setName(e.target.value)}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
@@ -75,6 +95,8 @@ export default function RegisterUsers() {
                                             label="Email"
                                             fullWidth
                                             autoComplete="email"
+                                            value={email}
+                                            onChange={e => setEmail(e.target.value)}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={3}>
@@ -83,8 +105,8 @@ export default function RegisterUsers() {
                                             <Select
                                                 labelId="labelType"
                                                 id="type"
-                                            // value={age}
-                                            // onChange={handleChange}
+                                                value={type}
+                                                onChange={e => setType(e.target.value)}
                                             >
                                                 <MenuItem value={1}>Manager</MenuItem>
                                                 <MenuItem value={2}>Employee</MenuItem>
@@ -100,7 +122,14 @@ export default function RegisterUsers() {
                                             label="Password"
                                             fullWidth
                                             autoComplete="password"
+                                            value={password}
+                                            onChange={e => setPassword(e.target.value)}
                                         />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12}>
+                                        <Button variant="contained" onClick={handleSubmit} color="primary">
+                                            Save
+                                        </Button>
                                     </Grid>
                                 </Grid>
                             </Paper>
