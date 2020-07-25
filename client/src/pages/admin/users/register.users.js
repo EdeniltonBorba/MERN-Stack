@@ -67,7 +67,7 @@ export default function RegisterUsers() {
             if (response.status === 200) {
                 window.location.href = '/admin/users'
             } else {
-                alert('Eerror when registering user');
+                alert('error when registering user');
             }
         } else {
             alert('please, fill in the data.');
