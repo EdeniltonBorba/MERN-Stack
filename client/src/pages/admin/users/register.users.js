@@ -7,7 +7,10 @@ import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
-
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
     img: {
         width: "inherit",
     },
+    formControl: {
+        width: "100%"
+    },
 }));
 
 export default function RegisterUsers() {
@@ -49,7 +55,7 @@ export default function RegisterUsers() {
                     <Grid container spacing={3}>
                         <Grid item sm={12}>
                             <Paper className={classes.paper}>
-                                <h2>Registration Form</h2>
+                                <h2>User Registration</h2>
                                 <Grid container spacing={3}>
                                     <Grid item xs={12} sm={12}>
                                         <TextField
@@ -69,6 +75,31 @@ export default function RegisterUsers() {
                                             label="Email"
                                             fullWidth
                                             autoComplete="email"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <FormControl className={classes.formControl}>
+                                            <InputLabel id="labelType">Type</InputLabel>
+                                            <Select
+                                                labelId="labelType"
+                                                id="type"
+                                            // value={age}
+                                            // onChange={handleChange}
+                                            >
+                                                <MenuItem value={1}>Manager</MenuItem>
+                                                <MenuItem value={2}>Employee</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <TextField
+                                            type="password"
+                                            required
+                                            id="password"
+                                            name="password"
+                                            label="Password"
+                                            fullWidth
+                                            autoComplete="password"
                                         />
                                     </Grid>
                                 </Grid>
