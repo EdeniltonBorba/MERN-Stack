@@ -61,9 +61,8 @@ export default function RegisterUsers() {
             type_user: type,
             password_user: password
         }
-        if (name === '' && email === '' && type === '' && password === '') {
-
-            const response = await api.post('/api/users', data)
+        if (name != '' && email != '' && type != '' && password != '') {
+            const response = await api.post('/api/users', data);
 
             if (response.status === 200) {
                 window.location.href = '/admin/users'
@@ -75,86 +74,86 @@ export default function RegisterUsers() {
         }
     }
 
-}
 
 
-return (
-    <div className={classes.root}>
-        <MenuAdmin title={'USERS'} />
-        <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
-            <Container maxWidth="lg" className={classes.container}>
-                <Grid container spacing={3}>
-                    <Grid item sm={12}>
-                        <Paper className={classes.paper}>
-                            <h2>User Registration</h2>
-                            <Grid container spacing={3}>
-                                <Grid item xs={12} sm={12}>
-                                    <TextField
-                                        required
-                                        id="name"
-                                        name="name"
-                                        label="Name"
-                                        fullWidth
-                                        autoComplete="name"
-                                        value={name}
-                                        onChange={e => setName(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField
-                                        required
-                                        id="email"
-                                        name="email"
-                                        label="Email"
-                                        fullWidth
-                                        autoComplete="email"
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={3}>
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel id="labelType">Type</InputLabel>
-                                        <Select
-                                            labelId="labelType"
-                                            id="type"
-                                            value={type}
-                                            onChange={e => setType(e.target.value)}
-                                        >
-                                            <MenuItem value={1}>Manager</MenuItem>
-                                            <MenuItem value={2}>Employee</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} sm={3}>
-                                    <TextField
-                                        type="password"
-                                        required
-                                        id="password"
-                                        name="password"
-                                        label="Password"
-                                        fullWidth
-                                        autoComplete="password"
-                                        value={password}
-                                        onChange={e => setPassword(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={12}>
-                                    <Button variant="contained" onClick={handleSubmit} color="primary">
-                                        Save
+
+    return (
+        <div className={classes.root}>
+            <MenuAdmin title={'USERS'} />
+            <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
+                <Container maxWidth="lg" className={classes.container}>
+                    <Grid container spacing={3}>
+                        <Grid item sm={12}>
+                            <Paper className={classes.paper}>
+                                <h2>User Registration</h2>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={12} sm={12}>
+                                        <TextField
+                                            required
+                                            id="name"
+                                            name="name"
+                                            label="Name"
+                                            fullWidth
+                                            autoComplete="name"
+                                            value={name}
+                                            onChange={e => setName(e.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <TextField
+                                            required
+                                            id="email"
+                                            name="email"
+                                            label="Email"
+                                            fullWidth
+                                            autoComplete="email"
+                                            value={email}
+                                            onChange={e => setEmail(e.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <FormControl className={classes.formControl}>
+                                            <InputLabel id="labelType">Type</InputLabel>
+                                            <Select
+                                                labelId="labelType"
+                                                id="type"
+                                                value={type}
+                                                onChange={e => setType(e.target.value)}
+                                            >
+                                                <MenuItem value={1}>Manager</MenuItem>
+                                                <MenuItem value={2}>Employee</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <TextField
+                                            type="password"
+                                            required
+                                            id="password"
+                                            name="password"
+                                            label="Password"
+                                            fullWidth
+                                            autoComplete="password"
+                                            value={password}
+                                            onChange={e => setPassword(e.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12}>
+                                        <Button variant="contained" onClick={handleSubmit} color="primary">
+                                            Save
                                         </Button>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </Paper>
+                            </Paper>
+                        </Grid>
+
                     </Grid>
-
-                </Grid>
-                <Box pt={4}>
-                    <Footer />
-                </Box>
-            </Container>
-        </main>
-    </div>
-);
-
+                    <Box pt={4}>
+                        <Footer />
+                    </Box>
+                </Container>
+            </main>
+        </div>
+    );
+}
