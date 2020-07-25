@@ -51,24 +51,24 @@ export default function RegisterUsers() {
                             <Paper className={classes.paper}>
                                 <h2>Registration Form</h2>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={12} sm={6}>
+                                    <Grid item xs={12} sm={12}>
                                         <TextField
                                             required
-                                            id="firstName"
-                                            name="firstName"
-                                            label="First name"
+                                            id="name"
+                                            name="name"
+                                            label="Name"
                                             fullWidth
-                                            autoComplete="given-name"
+                                            autoComplete="name"
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <TextField
                                             required
-                                            id="lastName"
-                                            name="lastName"
-                                            label="Last name"
+                                            id="email"
+                                            name="email"
+                                            label="Email"
                                             fullWidth
-                                            autoComplete="family-name"
+                                            autoComplete="email"
                                         />
                                     </Grid>
                                 </Grid>
