@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
@@ -6,6 +6,13 @@ import Grid from '@material-ui/core/Grid';
 import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin';
 import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import api from '../../../services/api';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +46,16 @@ const useStyles = makeStyles((theme) => ({
 export default function UserList() {
     const classes = useStyles();
 
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        async function LoadUsers() {
+            const response = await api.get('/api/users');
+            setUsers(response.data);
+        }
+        LoadUsers();
+    }, [])
+
     return (
         <div className={classes.root}>
             <MenuAdmin title={'USERS'} />
@@ -51,7 +68,32 @@ export default function UserList() {
                                 <h2>User Listing</h2>
                                 <Grid container spacing={3}>
                                     <Grid item xs={12} sm={12}>
-                                        Table
+                                        <TableContainer component={Paper}>
+                                            <Table className={classes.table} aria-label="simple table">
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <TableCell>Name</TableCell>
+                                                        <TableCell align="center">Email</TableCell>
+                                                        <TableCell align="center">Type</TableCell>
+                                                        <TableCell align="center">Registration Date</TableCell>
+                                                        <TableCell align="right">Options</TableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {users.map((row) => (
+                                                        <TableRow key={row._id}>
+                                                            <TableCell component="th" scope="row">
+                                                                {row.name_user}
+                                                            </TableCell>
+                                                            <TableCell>{row.email_user}</TableCell>
+                                                            <TableCell>{row.type_user}</TableCell>
+                                                            <TableCell>{row.createdAt}</TableCell>
+                                                            <TableCell align="right">Buttons</TableCell>
+                                                        </TableRow>
+                                                    ))}
+                                                </TableBody>
+                                            </Table>
+                                        </TableContainer>
                                     </Grid>
                                 </Grid>
                             </Paper>
