@@ -90,7 +90,7 @@ export default function UserList() {
                                                             </TableCell>
                                                             <TableCell align="center">{row.email_user}</TableCell>
                                                             <TableCell align="center">{row.type_user === 1 ? <Chip label="Manager" color="primary" /> : <Chip label="Employee" color="secondary" />}</TableCell>
-                                                            <TableCell align="center">{row.createdAt}</TableCell>
+                                                            <TableCell align="center">{new Date(row.createdAt).toLocaleString("pt-br")}</TableCell>
                                                             <TableCell align="right">
                                                                 <ButtonGroup aria-label="outlined primary button group">
                                                                     <Button color="primary">Update</Button>
