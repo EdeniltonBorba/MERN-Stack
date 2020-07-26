@@ -13,6 +13,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import api from '../../../services/api';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Chip from '@material-ui/core/Chip';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -85,10 +88,15 @@ export default function UserList() {
                                                             <TableCell component="th" scope="row">
                                                                 {row.name_user}
                                                             </TableCell>
-                                                            <TableCell>{row.email_user}</TableCell>
-                                                            <TableCell>{row.type_user}</TableCell>
-                                                            <TableCell>{row.createdAt}</TableCell>
-                                                            <TableCell align="right">Buttons</TableCell>
+                                                            <TableCell align="center">{row.email_user}</TableCell>
+                                                            <TableCell align="center">{row.type_user === 1 ? <Chip label="Manager" color="primary" /> : <Chip label="Employee" color="secondary" />}</TableCell>
+                                                            <TableCell align="center">{row.createdAt}</TableCell>
+                                                            <TableCell align="right">
+                                                                <ButtonGroup aria-label="outlined primary button group">
+                                                                    <Button color="primary">Update</Button>
+                                                                    <Button color="secondary">Delete</Button>
+                                                                </ButtonGroup>
+                                                            </TableCell>
                                                         </TableRow>
                                                     ))}
                                                 </TableBody>
